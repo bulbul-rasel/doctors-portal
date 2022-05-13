@@ -4,7 +4,11 @@ import About from './Pages/About/About';
 import Appoinment from './Pages/Appointment/Appoinment';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
+import RequireAuth from './Pages/Login/RequireAuth';
+import Signup from './Pages/Login/Signup';
 import Header from './Pages/Shared/Header/Header';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -15,9 +19,14 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/appointment' element={<Appoinment></Appoinment>}></Route>
+        <Route path='/signup' element={<Signup></Signup>}></Route>
+        <Route path='/appointment' element={
+          <RequireAuth>
+            <Appoinment></Appoinment>
+          </RequireAuth>
+        }></Route>
       </Routes>
-
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
