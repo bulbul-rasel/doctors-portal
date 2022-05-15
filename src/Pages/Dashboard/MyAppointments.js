@@ -41,7 +41,7 @@ const MyAppointments = () => {
                 <table class="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>S/L</th>
                             <th>Name</th>
                             <th>Date</th>
                             <th>Time</th>

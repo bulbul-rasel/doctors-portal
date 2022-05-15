@@ -19,8 +19,12 @@ const Header = () => {
         <li><Link to="/contact">Contact Us</Link></li>
         {
             user && <li><Link to="/dashboard">Dashboard</Link></li>
+
         }
         <li>{user ? <button className="btn btn-ghost  mt-2" onClick={logOut}>SignOut</button> : <Link to="/login">Login</Link>}</li>
+        {
+            user && <li className='mt-5 font-bold text-accent'> 🤵🏻{user.displayName}</li>
+        }
         <li >
             <label class="swap swap-rotate">
                 <input type="checkbox" data-toggle-theme="dark,light" />

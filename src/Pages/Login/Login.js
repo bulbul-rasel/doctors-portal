@@ -104,7 +104,7 @@ const Login = () => {
                             </label>
                         </div>
                         {signInError}
-                        <input className='btn w-full max-w-xs text-white' type="submit" value='Login' />
+                        <input className='btn w-full max-w-xs text-white btn-accent' type="submit" value='Login' />
                     </form>
                     <p>New to Doctors Portal? <span><small><Link className='text-primary' to="/signup">Create new account?</Link></small></span></p>
                     <div className="divider">OR</div>
