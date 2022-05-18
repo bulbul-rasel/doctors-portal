@@ -8,7 +8,7 @@ const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const imageStorageKey = '1640a6c7bd3bef81d0b37d4063ddcfc4'
 
-    const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/service').then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://frozen-meadow-83396.herokuapp.com/service').then(res => res.json()))
     const onSubmit = async data => {
         const image = data.image[0];
         const formData = new FormData();
@@ -28,7 +28,7 @@ const AddDoctor = () => {
                         specialty: data.specialty,
                         img: img
                     }
-                    fetch('http://localhost:5000/doctor', {
+                    fetch('https://frozen-meadow-83396.herokuapp.com/doctor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
