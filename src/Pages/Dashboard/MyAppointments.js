@@ -12,7 +12,7 @@ const MyAppointments = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://frozen-meadow-83396.herokuapp.com/booking?patient=${user.email}`, {
+            fetch(`http://localhost:5000/booking?patient=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -51,7 +51,7 @@ const MyAppointments = () => {
                     </thead>
                     <tbody>
                         {
-                            appointments.map((a, index) => <tr>
+                            appointments.map((a, index) => <tr key={a._id}>
                                 <th>{index + 1}</th>
                                 <td>{a.patientName}</td>
                                 <td>{a.date}</td>
@@ -59,7 +59,10 @@ const MyAppointments = () => {
                                 <td>{a.treatment}</td>
                                 <td>
                                     {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-sm btn-success'>Payment</button></Link>}
-                                    {(a.price && a.paid) && <span className='btn-success'>Payment</span>}
+                                    {(a.price && a.paid) && <div>
+                                        <p><span className='btn-success'>Payment</span></p>
+                                        <p>TransactionId : <span className='btn-success'>{a.transactionId}</span></p>
+                                    </div>}
                                 </td>
                             </tr>
                             )
